@@ -1,0 +1,29 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+int main()
+{
+	int a, b;
+	srand(time(NULL));
+	b = rand() % 100 + 1;
+	while (1)
+	{
+		scanf("%d", &a);
+		if (a < b)
+		{
+			printf("小了\n");
+		}
+		else if (a > b)
+		{
+			printf("大了\n");
+		}
+		else if (a == b)
+		{
+			printf("猜对了\n");
+			break;
+		}
+	}
+
+	return 0;
+}
