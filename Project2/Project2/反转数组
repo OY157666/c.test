@@ -1,0 +1,36 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+void printarr(int arr[], int len)
+{
+
+	for (int i = 0; i < len; i++)
+	{
+		printf("第%d个数是%d\n", i + 1, arr[i]); // Print the integers
+	}
+}
+
+
+int main()
+{
+	int arr[5];
+	int len = sizeof(arr) / sizeof(arr[0]);
+	for (int i = 0; i < len; i++)
+	{
+		printf("输入第%d个数:", i + 1);
+		scanf("%d", &arr[i]); // Read integers into the array
+	}
+	printarr(arr, len); // Call the function to print the integers
+	int i, j=len-1;
+	for (i = 0; i < j; )
+	{
+
+		int temp = arr[i];
+		arr[i] = arr[j];
+		arr[j] = temp;
+		i++;
+		j--;
+	}
+	printarr(arr, len); // Call the function to print the integers
+	return 0;
+}
