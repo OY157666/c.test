@@ -1,0 +1,30 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+int binary_search(int arr[], int num, int len);
+int main()
+{
+
+	int arr[5] = { 1, 2, 3, 4, 5 };
+	int num = 4;
+	int len = sizeof(arr) / sizeof(arr[0]);
+	int index = binary_search(arr, num, len);
+	printf("The index of %d is %d\n", num, index);
+}
+
+int binary_search(int arr[], int num, int len)
+{
+	int min = 0;
+	int max = len - 1;
+	while (min <= max)
+	{
+		int mid = (min+max) / 2;
+		if (arr[mid] == num)
+			return mid;
+		else if (arr[mid] < num)
+			min = mid + 1;
+		else
+			max = mid - 1;
+	}
+	return -1;
+}
