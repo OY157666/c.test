@@ -1,0 +1,28 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+void get_maxmin(int arr[], int len, int* max, int* min);
+
+int main()
+{
+	int arr[5] = { 6,3,1,6,9 };
+	int len = sizeof(arr) / sizeof(arr[0]); 
+	int max = arr[0];
+	int min = arr[0];
+
+
+	get_maxmin(arr, len, &max, &min);
+	printf("max%d,min%d\n", max,min);
+	return 0;
+}
+
+void get_maxmin(int arr[],int len,int*max,int*min)
+{
+	for (int i = 0; i < len; i++)
+	{
+		if (arr[i] > *max)
+			*max = arr[i];
+		if (arr[i] < *min)
+			*min = arr[i];
+	}
+	return 0;
+}
