@@ -1,0 +1,48 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+int add(int a, int b);
+int subtract(int a, int b);
+int multiply(int a, int b);
+int divide(int a, int b);
+
+
+int main()
+{
+
+	int (*arr[4])(int, int) = { add ,subtract ,multiply ,divide };
+	printf("输入两个数字: ");
+	int a, b;
+	scanf("%d %d", &a, &b);
+	printf("选择操作 (1: add, 2: subtract, 3: multiply, 4: divide): ");
+	int operation;
+	scanf("%d", &operation);
+	printf("结果: %d\n", arr[operation - 1](a, b));
+	return 0;
+}
+
+
+int add(int a, int b)
+{
+	return a + b;
+}
+
+int subtract(int a, int b)
+{
+	return a - b;
+}
+
+int multiply(int a, int b)
+{
+	return a * b;
+}
+
+int divide(int a, int b)
+{
+	if (b == 0)
+	{
+		printf("Error: Division by zero\n");
+		return 0;
+	}
+	return a / b;
+}
