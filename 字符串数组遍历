@@ -1,0 +1,19 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+
+int main()
+{
+	char str_arr[5][100] = { "hello","world","this","is","test" };
+	for (int i = 0; i < 5; i++)
+	{
+		printf("%s\n", str_arr[i]);
+	}
+
+	char* str_arr2[5] = { "hello","world","this","is","test" };
+	for(int i = 0; i < 5; i++)
+	{
+		printf("%s\n", str_arr2[i]);
+	}
+	return 0;
+}
