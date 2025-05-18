@@ -1,0 +1,33 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+typedef struct student {
+	char name[20];
+	int  age;
+}s;
+
+void method(s* p);// 函数声明要放在结构体前面
+
+int main()
+{
+	s stu = { "ffsf" ,34 };
+	//或s stu;
+	//strcpy(stu.name, "ffsf");  // 字符串需要用 strcpy
+	//stu.age = 34;
+	//stu.height = 46;
+	//printf("%s", stu.name);    // 输出 "ffsf"
+	//stu = { "ffsf" ,34,46 }; 不能这样赋值
+	printf("初始数据name:%s,age:%d\n", stu.name, stu.age);
+	method(&stu); // 传递结构体的地址
+	printf("修改后数据name:%s,age:%d\n", stu.name, stu.age);
+	return 0;
+}
+
+void method(s* p)//p记录stu的地址
+{
+	printf("输入修改学生名字:\n");	
+	scanf("%s", (*p).name); 
+	printf("输入修改学生年龄:\n");
+	scanf("%d", &(*p).age);
+
+}
