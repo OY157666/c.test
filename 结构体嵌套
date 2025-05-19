@@ -1,0 +1,33 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+typedef struct student {
+	char name[20];
+	int  age;
+	struct message {
+		char phone[20];
+		int  num;
+	}msg;
+}s;
+//// 先定义嵌套结构体并起别名
+//typedef struct {
+//	char phone[20];
+//	int num;
+//} Message;  // Message 是别名
+//
+//// 再在外部结构体中使用
+//typedef struct student {
+//	char name[20];
+//	int age;
+//	Message msg;  // 使用别名
+//} Student;
+
+
+int main()
+{
+	s stu = { "qqq" ,34 ,{"234fs",123} };
+
+	printf("%s %d %s %d\n", stu.name, stu.age, stu.msg.phone, stu.msg.num);
+	return 0;
+}
+
